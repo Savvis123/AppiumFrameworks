@@ -1,0 +1,28 @@
+package LaunchApps;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.remote.MobileCapabilityType;
+
+public class LaunchNativeApp {
+
+	public static void main(String[] args) throws MalformedURLException {
+	
+		DesiredCapabilities cap=new DesiredCapabilities();
+		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+		cap.setCapability(MobileCapabilityType.DEVICE_NAME, "5203e9f85a1bc3ff");
+        cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.1.0");
+        cap.setCapability(MobileCapabilityType.APPLICATION_NAME, "Automation");
+        cap.setCapability("apppackage", "com.whatsapp");
+        cap.setCapability("appactivity", "com.whatsapp.HomeActivity");
+        URL url=new URL("http://0.0.0.0:4723//wd/hub");
+        AppiumDriver<WebElement> driver=new AndroidDriver<WebElement>(url,cap);
+	}
+
+}
